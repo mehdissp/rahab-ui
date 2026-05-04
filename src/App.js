@@ -14,6 +14,7 @@ import MenuAccess from './components/page/menuAccess/MenuAccess';
 import Role from './components/page/role/Role';
 import Tag from './components/page/tag/Tag';
 import HomePage from './components/page/homePage/HomePage';
+import Company from './components/page/company/Company';
 import Archive from './components/page/archive/Archive';
 import HotelPage from './components/page/hotel/HotelPage';
 import RealEstatePage from './components/page/realestate/RealEstatePage';
@@ -54,7 +55,7 @@ const AppContent = () => {
       <Route index path="/login" element={<Login />} />
       
       {/* روت‌های محافظت شده */}
-      <Route path="/dashboard/*" element={
+      <Route path="/*" element={
         isAuthenticated ? <AuthenticatedApp /> : <Navigate to="/login" replace />
       } />
     </Routes>
@@ -80,6 +81,7 @@ const AuthenticatedApp = () => {
         <Route path="Role" element={<Role />} />
         <Route path="Tag" element={<Tag />} />
         <Route path="profile" element={<Profile />} />
+        <Route path="Company" element={<Company />} />
         
         {/* روت‌های داینامیک */}
         {renderMenuRoutes(menus)}

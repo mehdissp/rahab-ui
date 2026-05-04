@@ -783,13 +783,13 @@ const handleCloseUserModal = () => {
                             <FaEye />
                       </button>
                           
-                    <button 
+                    {/* <button 
                         className="btn-action btn-warning"
                         title="آرشیو"
                             onClick={() => handleArchiveClick(project)}
                       >
                             <FaArchive />
-                      </button>
+                      </button> */}
 
                           
     {/* دکمه جدید برای مدیریت کاربران */}
@@ -908,6 +908,7 @@ const handleCloseUserModal = () => {
       isOpen={isUserModalOpen}
       onClose={handleCloseUserModal}
       projectName={selectedProject?.name}
+      project={selectedProject}
       users={users}
       selectedUsers={selectedUsers}
       onUserToggle={toggleUserSelection}

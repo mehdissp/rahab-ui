@@ -8,6 +8,7 @@ const UserSelectionModal = ({
   isOpen,
   onClose,
   projectName,
+  project,
   users,
   selectedUsers,
   onUserToggle,
@@ -21,7 +22,7 @@ const UserSelectionModal = ({
 
   // محاسبه تعداد کاربران انتخاب شده بر اساس isCheck
   const selectedCount = users.filter(user => user.isCheck).length;
-
+console.log(project)
   return (
     <div className="modal-overlay">
       <div className="user-selection-modal">

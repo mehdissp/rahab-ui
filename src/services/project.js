@@ -102,6 +102,26 @@ export const projectService = {
   },
 
 
+  
+    async GetCompanyCombo() {
+    try {
+   
+      const response = await http.post('/Company/GetCompanyCombo');
+      console.log('📦 Projects data received:', response.data);
+      
+      // استفاده از ساختار جدید API
+      return response.data.data || {
+        items: [],
+        totalCount: 0,
+        totalPages: 0
+      };
+    } catch (error) {
+      console.error('❌ Get projects service error:', error);
+      throw error;
+    }
+  },
+
+
   async insertOrDeleteMenuAccess(projectDate,projectId) {
     try {
    console.log("projectDate:", projectDate, "projectId:", projectId);
@@ -150,6 +170,8 @@ export const projectService = {
       throw error;
     }
   },
+
+  
 
 
 };
