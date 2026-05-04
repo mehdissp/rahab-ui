@@ -15,6 +15,7 @@ import Role from './components/page/role/Role';
 import Tag from './components/page/tag/Tag';
 import HomePage from './components/page/homePage/HomePage';
 import Company from './components/page/company/Company';
+
 import Archive from './components/page/archive/Archive';
 import HotelPage from './components/page/hotel/HotelPage';
 import RealEstatePage from './components/page/realestate/RealEstatePage';
@@ -23,6 +24,7 @@ import RealEstateDetailPageItem from './components/page/RealEstateDetailPageItem
 import MainLayout from './components/layout/MainLayout';  // <==== ایمپورت MainLayout
 import './styles/globals.css';
 import './styles/animations.css';
+import Bank from './components/page/bank/Bank';
 
 // Layout wrapper با Outlet
 const LayoutWrapper = () => {
@@ -82,6 +84,7 @@ const AuthenticatedApp = () => {
         <Route path="Tag" element={<Tag />} />
         <Route path="profile" element={<Profile />} />
         <Route path="Company" element={<Company />} />
+        <Route path="Bank" element={<Bank />} />
         
         {/* روت‌های داینامیک */}
         {renderMenuRoutes(menus)}
