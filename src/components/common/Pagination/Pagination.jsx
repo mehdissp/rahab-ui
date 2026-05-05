@@ -10,6 +10,7 @@ const Pagination = ({
   onPageChange, 
   disabled = false 
 }) => {
+  console.log('*********************',totalPages)
   const getPageNumbers = () => {
     const delta = 10;
     const range = [];
