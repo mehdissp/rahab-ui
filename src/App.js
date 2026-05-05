@@ -15,6 +15,7 @@ import Role from './components/page/role/Role';
 import Tag from './components/page/tag/Tag';
 import HomePage from './components/page/homePage/HomePage';
 import Company from './components/page/company/Company';
+import FinancialTreeList from './components/page/financial/FinancialTreeList';
 
 import Archive from './components/page/archive/Archive';
 import HotelPage from './components/page/hotel/HotelPage';
@@ -85,6 +86,8 @@ const AuthenticatedApp = () => {
         <Route path="profile" element={<Profile />} />
         <Route path="Company" element={<Company />} />
         <Route path="Bank" element={<Bank />} />
+        <Route path="FinancialTreeList" element={<FinancialTreeList />} />
+        
         
         {/* روت‌های داینامیک */}
         {renderMenuRoutes(menus)}
