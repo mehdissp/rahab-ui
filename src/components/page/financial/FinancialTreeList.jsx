@@ -1300,8 +1300,8 @@ const FinancialTreeList = () => {
             </div>
           </td>
           <td className="tree-cell-transaction">
-            <span className={`transaction-badge ${node.financial_transactions === 1 ? 'transaction-out' : 'transaction-in'}`}>
-              {node.financial_transactions === 1 ? 'خروجی' : 'ورودی'}
+            <span className={`transaction-badge ${node.financial_transactions === 1 ?  'transaction-in' :'transaction-out' }`}>
+              {node.financial_transactions === 1 ? 'ورودی':'خروجی' }
             </span>
           </td>
           <td className="tree-cell-actions">

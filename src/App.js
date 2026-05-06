@@ -22,6 +22,7 @@ import HotelPage from './components/page/hotel/HotelPage';
 import RealEstatePage from './components/page/realestate/RealEstatePage';
 import RealEstatePageDetail from './components/page/realEstateDetails/RealEstatePageDetail'
 import RealEstateDetailPageItem from './components/page/RealEstateDetailPageItem/RealEstateDetailPageItem'
+import FinancialOperations from './components/page/financialOperations/FinancialOperations'
 import MainLayout from './components/layout/MainLayout';  // <==== ایمپورت MainLayout
 import './styles/globals.css';
 import './styles/animations.css';
@@ -87,6 +88,8 @@ const AuthenticatedApp = () => {
         <Route path="Company" element={<Company />} />
         <Route path="Bank" element={<Bank />} />
         <Route path="FinancialTreeList" element={<FinancialTreeList />} />
+     <Route path="FinancialOperations" element={<FinancialOperations />} />
+        
         
         
         {/* روت‌های داینامیک */}

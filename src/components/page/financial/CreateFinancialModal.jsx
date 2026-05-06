@@ -525,7 +525,7 @@ const CreateFinancialModal = ({ isOpen, onClose, onSuccess, parentItem, editItem
 
   // دریافت عنوان نمایشی نوع تراکنش
   const getTransactionTypeLabel = (type) => {
-    return type === 1 ? 'خروجی (Out)' : 'ورودی (In)';
+    return type === 2 ? 'خروجی (Out)': 'ورودی (In)'  ;
   };
 
   // بررسی اینکه آیا آیتم جاری فرزند است یا خیر
@@ -716,7 +716,7 @@ const CreateFinancialModal = ({ isOpen, onClose, onSuccess, parentItem, editItem
                 <div className="info-row">
                   <span className="info-label">نوع تراکنش والد:</span>
                   <span className="info-value">
-                    <span className={`transaction-badge ${parentInfo.transactionType === 1 ? 'transaction-out' : 'transaction-in'}`}>
+                    <span className={`transaction-badge ${parentInfo.transactionType === 1 ? 'transaction-in':'transaction-out' }`}>
                       {getTransactionTypeLabel(parentInfo.transactionType)}
                     </span>
                   </span>
@@ -784,8 +784,9 @@ const CreateFinancialModal = ({ isOpen, onClose, onSuccess, parentItem, editItem
                   value={formData.financial_transactions}
                   onChange={handleChange}
                 >
-                  <option value={1}>خروجی (Out)</option>
-                  <option value={2}>ورودی (In)</option>
+                   <option value={1}>ورودی (In)</option>
+                  <option value={2}>خروجی (Out)</option>
+                 
                 </select>
                 <small className="field-hint">
                   💡 توجه: پس از ایجاد زیرمجموعه برای این آیتم، نوع تراکنش به همه زیرمجموعه‌ها ارث‌بری می‌شود

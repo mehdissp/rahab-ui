@@ -1,0 +1,680 @@
+/* CreateEditFinancialModal.css */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* کلاس اختصاصی برای مودال عملیات مالی - فقط این مودال بزرگ میشه */
+.financial-modal-container {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  width: 1500px;
+  max-width: 95%;
+  /* height: 85vh;
+  max-height: 85vh; */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  direction: rtl;
+}
+
+/* فرم */
+.financial-modal-container .financial-form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  flex: 1;
+}
+
+/* هدر - ثابت در بالا */
+.financial-modal-container .modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  flex-shrink: 0;
+}
+
+.financial-modal-container .modal-header h2 {
+  margin: 0;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.financial-modal-container .modal-close {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.financial-modal-container .modal-close:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.financial-modal-container .modal-close:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* بدنه مودال - اینجا اسکرول میشه */
+.financial-modal-container .modal-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem;
+}
+
+/* اسکرول بار */
+.financial-modal-container .modal-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.financial-modal-container .modal-body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.financial-modal-container .modal-body::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 10px;
+}
+
+.financial-modal-container .modal-body::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* فوتر - ثابت در پایین */
+.financial-modal-container .modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #e5e7eb;
+  background: #f9fafb;
+  flex-shrink: 0;
+}
+
+/* بخش‌های فرم */
+.financial-modal-container .form-section {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 16px;
+}
+
+.financial-modal-container .section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.financial-modal-container .section-number {
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+.financial-modal-container .section-title span:last-child {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.financial-modal-container .form-row {
+  display: grid;
+  gap: 1rem;
+}
+
+.financial-modal-container .form-row.two-columns {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 768px) {
+  .financial-modal-container .form-row.two-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+.financial-modal-container .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.financial-modal-container .form-group label {
+  font-weight: 500;
+  color: #374151;
+  font-size: 0.85rem;
+}
+
+.financial-modal-container .required {
+  color: #ef4444;
+}
+
+.financial-modal-container input,
+.financial-modal-container select,
+.financial-modal-container textarea {
+  padding: 0.65rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-family: 'Vazirmatn', 'IRANSans', Tahoma, sans-serif;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+  background: white;
+}
+
+.financial-modal-container input:focus,
+.financial-modal-container select:focus,
+.financial-modal-container textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.financial-modal-container input.error,
+.financial-modal-container select.error,
+.financial-modal-container textarea.error {
+  border-color: #ef4444;
+}
+
+.financial-modal-container input:disabled,
+.financial-modal-container select:disabled,
+.financial-modal-container textarea:disabled {
+  background-color: #f9fafb;
+  cursor: not-allowed;
+}
+
+.financial-modal-container textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* رادیو باتن‌ها */
+.financial-modal-container .status-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.financial-modal-container .status-option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: white;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid #e5e7eb;
+}
+
+.financial-modal-container .status-option:hover {
+  border-color: #667eea;
+  transform: translateY(-1px);
+}
+
+.financial-modal-container .status-option.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: transparent;
+}
+
+.financial-modal-container .status-option.active span {
+  color: white;
+}
+
+.financial-modal-container .status-option input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  margin: 0;
+}
+
+.financial-modal-container .status-option span {
+  font-size: 0.85rem;
+  color: #4b5563;
+}
+
+/* تقویم */
+.financial-modal-container .date-picker-group {
+  position: relative;
+}
+
+.financial-modal-container .date-input-wrapper {
+  position: relative;
+}
+
+.financial-modal-container .date-input-wrapper input {
+  width: 100%;
+  cursor: pointer;
+  padding-left: 40px;
+}
+
+.financial-modal-container .calendar-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.financial-modal-container .calendar-popup {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 8px;
+  z-index: 1001;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.financial-modal-container .react-calendar {
+  border: none !important;
+  border-radius: 12px !important;
+  font-family: 'Vazirmatn', 'IRANSans', Tahoma, sans-serif !important;
+}
+
+.financial-modal-container .react-calendar__tile--active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: white !important;
+}
+
+.financial-modal-container .error-message {
+  color: #ef4444;
+  font-size: 0.7rem;
+  margin-top: 0.25rem;
+}
+
+.financial-modal-container .submit-error {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: #fee2e2;
+  color: #dc2626;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* دکمه‌ها */
+.financial-modal-container .btn-cancel,
+.financial-modal-container .btn-submit {
+  padding: 0.6rem 1.5rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Vazirmatn', 'IRANSans', Tahoma, sans-serif;
+}
+
+.financial-modal-container .btn-cancel {
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #e5e7eb;
+}
+
+.financial-modal-container .btn-cancel:hover:not(:disabled) {
+  background: #e5e7eb;
+}
+
+.financial-modal-container .btn-submit {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.financial-modal-container .btn-submit:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.financial-modal-container .btn-cancel:disabled,
+.financial-modal-container .btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* دکمه‌های انتخاب نوع تراکنش */
+.transaction-type-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.transaction-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Vazirmatn', 'IRANSans', Tahoma, sans-serif;
+}
+
+.transaction-btn span:first-child {
+  font-size: 1.2rem;
+}
+
+.transaction-btn:hover {
+  border-color: #667eea;
+  transform: translateY(-1px);
+}
+
+.transaction-btn.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: transparent;
+  color: white;
+}
+
+/* به CreateEditFinancialModal.css اضافه کن */
+
+/* مسیر انتخاب شده */
+.selected-path {
+  padding: 10px 12px;
+  background: #f0fdf4;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+}
+
+.path-label {
+  font-weight: 600;
+  color: #166534;
+}
+
+.path-item {
+  color: #15803d;
+}
+
+/* سطوح مالی */
+.financial-levels {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.financial-level {
+  background: #f9fafb;
+  border-radius: 12px;
+  padding: 0.75rem;
+}
+
+.financial-level label {
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.5rem;
+  display: block;
+  font-size: 0.8rem;
+}
+
+.level-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.level-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Vazirmatn', 'IRANSans', Tahoma, sans-serif;
+}
+
+.level-item:hover {
+  border-color: #667eea;
+  transform: translateY(-1px);
+}
+
+.level-item.selected {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: transparent;
+  color: white;
+}
+
+.has-children-icon {
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+
+/* به CreateEditFinancialModal.css اضافه کن */
+
+/* مسیر یاب (Breadcrumb) */
+.financial-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 12px;
+  background: #f8fafc;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+}
+
+.breadcrumb-item {
+  display: inline-flex;
+  align-items: center;
+}
+
+.breadcrumb-link {
+  background: none;
+  border: none;
+  color: #3b82f6;
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 0;
+  font-family: 'Vazirmatn', 'IRANSans', Tahoma, sans-serif;
+}
+
+.breadcrumb-link:hover {
+  text-decoration: underline;
+}
+
+.separator {
+  color: #94a3b8;
+  margin: 0 4px;
+}
+
+.breadcrumb-current {
+  color: #64748b;
+}
+
+/* هدر هر سطح */
+.level-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.level-header label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.85rem;
+}
+
+.level-search {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.level-search input {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  width: 180px;
+}
+
+.search-btn {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0.4rem 0.75rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.2s;
+}
+
+.search-btn:hover:not(:disabled) {
+  background: #e2e8f0;
+}
+
+/* سطوح مالی */
+.financial-level {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #e2e8f0;
+}
+
+.level-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 0.25rem;
+}
+
+.level-items::-webkit-scrollbar {
+  width: 4px;
+}
+
+.level-items::-webkit-scrollbar-track {
+  background: #e2e8f0;
+  border-radius: 4px;
+}
+
+.level-items::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 4px;
+}
+
+.level-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.5rem 1rem;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Vazirmatn', 'IRANSans', Tahoma, sans-serif;
+}
+
+.level-item:hover {
+  border-color: #667eea;
+  transform: translateY(-1px);
+  background: #fefce8;
+}
+
+.level-item.selected {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: transparent;
+  color: white;
+}
+
+.has-children-icon {
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+
+.no-data-message {
+  text-align: center;
+  padding: 1rem;
+  color: #94a3b8;
+  font-size: 0.8rem;
+}
+
+/* به CreateEditFinancialModal.css اضافه کن */
+.transaction-type-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.transaction-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Vazirmatn', 'IRANSans', Tahoma, sans-serif;
+}
+
+.transaction-btn:hover {
+  border-color: #667eea;
+  transform: translateY(-1px);
+}
+
+.transaction-btn.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: transparent;
+  color: white;
+}
+
+
+
