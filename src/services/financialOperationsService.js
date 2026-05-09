@@ -55,12 +55,30 @@ export const financialOperationsService = {
   getFinancialOperations: async (pageNumber = 1, pageSize = 10, filters = {}) => {
     console.log(filters)
     try {
-      const response = await http.post('/FinancialOperations/FinancialOperationsDtos', {
-        pageSize: pageSize,
-        pageNumber: pageNumber,
-        id: 0,
-        keyValue: filters.searchTerm || ''
-      });
+      // const response = await http.post('/FinancialOperations/FinancialOperationsDtos', {
+      //   pageSize: pageSize,
+      //   pageNumber: pageNumber,
+      //   id: 0,
+      //   keyValue: filters.searchTerm || '',
+      //   projectId:filters.projectId,
+      //   bankId:filters.bankId
+      // });
+      const requestBody = {
+    pageSize: pageSize,
+    pageNumber: pageNumber,
+    id: 0,
+    keyValue: filters.searchTerm || '',
+};
+
+// فقط درصورتی که مقدار دارند اضافه کن
+if (filters.projectId !== null && filters.projectId !== undefined && filters.projectId !== '') {
+    requestBody.projectId = Number(filters.projectId);
+}
+if (filters.bankId !== null && filters.bankId !== undefined && filters.bankId !== '') {
+    requestBody.bankId = Number(filters.bankId);
+}
+
+const response = await http.post('/FinancialOperations/FinancialOperationsDtos', requestBody);
       
       let items = [];
       let totalCount = 0;
