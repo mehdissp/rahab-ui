@@ -180,5 +180,18 @@ export const financialOperationsService = {
       console.error('Error in getComboParentFinancial:', error);
       throw error;
     }
+  },
+    getAccountSideCombo: async (id=0) => {
+  try {
+    console.log("miayad GetAccountSideCombo")
+    const response = await http.post('/FinancialOperations/GetAccountSideCombo',id, {
+      headers: { 'Content-Type': 'application/json' }
+    });
+    console.log("خروجی",response.data)
+    return response.data;
+  } catch (error) {
+    console.error('Error in deleteBank:', error);
+    throw error;
   }
+},
 };

@@ -12,21 +12,36 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  padding: 10px;
 }
 
-/* کلاس اختصاصی برای مودال عملیات مالی - فقط این مودال بزرگ میشه */
+/* کلاس اختصاصی برای مودال عملیات مالی */
 .financial-modal-container {
   background: white;
   border-radius: 20px;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-  width: 1500px;
-  max-width: 95%;
-  /* height: 85vh;
-  max-height: 85vh; */
+  width: 95vw;
+  max-width: 95vw;
+  height: 95vh;
+  max-height: 95vh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   direction: rtl;
+}
+
+@media (max-width: 768px) {
+  .modal-overlay {
+    padding: 5px;
+  }
+  
+  .financial-modal-container {
+    width: 98vw;
+    max-width: 98vw;
+    height: 98vh;
+    max-height: 98vh;
+    border-radius: 12px;
+  }
 }
 
 /* فرم */
@@ -34,109 +49,71 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  overflow: hidden;
   flex: 1;
+  overflow: hidden;
 }
 
-/* هدر - ثابت در بالا */
+/* هدر */
 .financial-modal-container .modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.25rem 1.5rem;
+  padding: 0.875rem 1.5rem;
   border-bottom: 1px solid #e5e7eb;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   flex-shrink: 0;
 }
 
-.financial-modal-container .modal-header h2 {
-  margin: 0;
-  color: white;
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-
-.financial-modal-container .modal-close {
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: white;
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
-}
-
-.financial-modal-container .modal-close:hover:not(:disabled) {
-  background: rgba(255, 255, 255, 0.3);
-}
-
-.financial-modal-container .modal-close:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-/* بدنه مودال - اینجا اسکرول میشه */
+/* بدنه مودال */
 .financial-modal-container .modal-body {
   flex: 1;
   overflow-y: auto;
-  padding: 1.5rem;
+  max-height: 100% !important;
+  padding: 1rem 1.5rem 0.5rem 1.5rem; /* کاهش padding-bottom به 0.5rem */
 }
 
-/* اسکرول بار */
-.financial-modal-container .modal-body::-webkit-scrollbar {
-  width: 6px;
+/* حذف فضای خالی آخرین بخش */
+.financial-modal-container .modal-body .form-section:last-child {
+  margin-bottom: 0 !important;
 }
 
-.financial-modal-container .modal-body::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
-}
-
-.financial-modal-container .modal-body::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
-  border-radius: 10px;
-}
-
-.financial-modal-container .modal-body::-webkit-scrollbar-thumb:hover {
-  background: #a8a8a8;
-}
-
-/* فوتر - ثابت در پایین */
+/* فوتر */
 .financial-modal-container .modal-footer {
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
-  padding: 1rem 1.5rem;
+  padding: 0.75rem 1.5rem;
   border-top: 1px solid #e5e7eb;
   background: #f9fafb;
   flex-shrink: 0;
+  margin-top: 0; /* اطمینان از نبود margin اضافی */
 }
 
 /* بخش‌های فرم */
 .financial-modal-container .form-section {
-  margin-bottom: 1.5rem;
-  padding: 1rem;
+  margin-bottom: 0.875rem; /* کاهش از 1rem به 0.875rem */
+  padding: 0.75rem;
   background: #f9fafb;
-  border-radius: 16px;
+  border-radius: 12px;
+}
+
+/* آخرین بخش قبل از فوتر */
+.financial-modal-container .form-section:last-of-type {
+  margin-bottom: 0;
 }
 
 .financial-modal-container .section-title {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
+  gap: 8px;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.4rem;
   border-bottom: 2px solid #e5e7eb;
 }
 
 .financial-modal-container .section-number {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   border-radius: 50%;
@@ -144,18 +121,18 @@
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
 }
 
 .financial-modal-container .section-title span:last-child {
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: #374151;
 }
 
 .financial-modal-container .form-row {
   display: grid;
-  gap: 1rem;
+  gap: 0.75rem;
 }
 
 .financial-modal-container .form-row.two-columns {
@@ -171,13 +148,13 @@
 .financial-modal-container .form-group {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.35rem;
 }
 
 .financial-modal-container .form-group label {
   font-weight: 500;
   color: #374151;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
 }
 
 .financial-modal-container .required {
@@ -187,11 +164,11 @@
 .financial-modal-container input,
 .financial-modal-container select,
 .financial-modal-container textarea {
-  padding: 0.65rem 0.75rem;
+  padding: 0.5rem 0.75rem;
   border: 1px solid #d1d5db;
-  border-radius: 10px;
+  border-radius: 8px;
   font-family: 'Vazirmatn', 'IRANSans', Tahoma, sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   transition: all 0.2s ease;
   background: white;
 }
@@ -219,21 +196,21 @@
 
 .financial-modal-container textarea {
   resize: vertical;
-  min-height: 80px;
+  min-height: 60px;
 }
 
 /* رادیو باتن‌ها */
 .financial-modal-container .status-options {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 0.5rem;
 }
 
 .financial-modal-container .status-option {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
+  gap: 4px;
+  padding: 4px 12px;
   background: white;
   border-radius: 30px;
   cursor: pointer;
@@ -256,14 +233,14 @@
 }
 
 .financial-modal-container .status-option input[type="radio"] {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   cursor: pointer;
   margin: 0;
 }
 
 .financial-modal-container .status-option span {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: #4b5563;
 }
 
@@ -279,7 +256,7 @@
 .financial-modal-container .date-input-wrapper input {
   width: 100%;
   cursor: pointer;
-  padding-left: 40px;
+  padding-left: 36px;
 }
 
 .financial-modal-container .calendar-icon {
@@ -287,7 +264,7 @@
   left: 12px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 1rem;
+  font-size: 0.9rem;
   pointer-events: none;
   opacity: 0.6;
 }
@@ -316,27 +293,17 @@
 
 .financial-modal-container .error-message {
   color: #ef4444;
-  font-size: 0.7rem;
-  margin-top: 0.25rem;
-}
-
-.financial-modal-container .submit-error {
-  margin-top: 1rem;
-  padding: 0.75rem;
-  background: #fee2e2;
-  color: #dc2626;
-  border-radius: 10px;
-  font-size: 0.85rem;
-  text-align: center;
+  font-size: 0.65rem;
+  margin-top: 0.2rem;
 }
 
 /* دکمه‌ها */
 .financial-modal-container .btn-cancel,
 .financial-modal-container .btn-submit {
-  padding: 0.6rem 1.5rem;
+  padding: 0.5rem 1.25rem;
   border: none;
-  border-radius: 10px;
-  font-size: 0.85rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -373,7 +340,7 @@
 /* دکمه‌های انتخاب نوع تراکنش */
 .transaction-type-buttons {
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
 }
 
 .transaction-btn {
@@ -381,12 +348,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 10px 16px;
+  gap: 6px;
+  padding: 8px 12px;
   background: white;
   border: 2px solid #e5e7eb;
-  border-radius: 12px;
-  font-size: 0.9rem;
+  border-radius: 10px;
+  font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -394,7 +361,7 @@
 }
 
 .transaction-btn span:first-child {
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .transaction-btn:hover {
@@ -408,15 +375,13 @@
   color: white;
 }
 
-/* به CreateEditFinancialModal.css اضافه کن */
-
 /* مسیر انتخاب شده */
 .selected-path {
-  padding: 10px 12px;
+  padding: 8px 12px;
   background: #f0fdf4;
-  border-radius: 10px;
-  margin-bottom: 1rem;
-  font-size: 0.85rem;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  font-size: 0.8rem;
 }
 
 .path-label {
@@ -432,162 +397,30 @@
 .financial-levels {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.75rem;
 }
 
 .financial-level {
   background: #f9fafb;
-  border-radius: 12px;
-  padding: 0.75rem;
+  border-radius: 10px;
+  padding: 0.6rem;
 }
 
 .financial-level label {
   font-weight: 600;
   color: #374151;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
   display: block;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
 }
 
 .level-items {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.level-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
-  background: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-family: 'Vazirmatn', 'IRANSans', Tahoma, sans-serif;
-}
-
-.level-item:hover {
-  border-color: #667eea;
-  transform: translateY(-1px);
-}
-
-.level-item.selected {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-color: transparent;
-  color: white;
-}
-
-.has-children-icon {
-  font-size: 0.7rem;
-  opacity: 0.7;
-}
-
-/* به CreateEditFinancialModal.css اضافه کن */
-
-/* مسیر یاب (Breadcrumb) */
-.financial-breadcrumb {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 5px;
-  padding: 10px 12px;
-  background: #f8fafc;
-  border-radius: 10px;
-  margin-bottom: 1rem;
-  font-size: 0.85rem;
-}
-
-.breadcrumb-item {
-  display: inline-flex;
-  align-items: center;
-}
-
-.breadcrumb-link {
-  background: none;
-  border: none;
-  color: #3b82f6;
-  cursor: pointer;
-  font-size: 0.85rem;
-  padding: 0;
-  font-family: 'Vazirmatn', 'IRANSans', Tahoma, sans-serif;
-}
-
-.breadcrumb-link:hover {
-  text-decoration: underline;
-}
-
-.separator {
-  color: #94a3b8;
-  margin: 0 4px;
-}
-
-.breadcrumb-current {
-  color: #64748b;
-}
-
-/* هدر هر سطح */
-.level-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.75rem;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.level-header label {
-  font-weight: 600;
-  color: #374151;
-  font-size: 0.85rem;
-}
-
-.level-search {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-}
-
-.level-search input {
-  padding: 0.4rem 0.75rem;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  font-size: 0.8rem;
-  width: 180px;
-}
-
-.search-btn {
-  background: #f1f5f9;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  padding: 0.4rem 0.75rem;
-  cursor: pointer;
-  font-size: 0.8rem;
-  transition: all 0.2s;
-}
-
-.search-btn:hover:not(:disabled) {
-  background: #e2e8f0;
-}
-
-/* سطوح مالی */
-.financial-level {
-  background: #f8fafc;
-  border-radius: 12px;
-  padding: 0.75rem;
-  margin-bottom: 1rem;
-  border: 1px solid #e2e8f0;
-}
-
-.level-items {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  max-height: 200px;
+  gap: 0.4rem;
+  max-height: 180px;
   overflow-y: auto;
-  padding: 0.25rem;
+  padding: 0.2rem;
 }
 
 .level-items::-webkit-scrollbar {
@@ -607,12 +440,12 @@
 .level-item {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 0.5rem 1rem;
+  gap: 4px;
+  padding: 4px 12px;
   background: white;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #e5e7eb;
   border-radius: 20px;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   cursor: pointer;
   transition: all 0.2s ease;
   font-family: 'Vazirmatn', 'IRANSans', Tahoma, sans-serif;
@@ -621,7 +454,6 @@
 .level-item:hover {
   border-color: #667eea;
   transform: translateY(-1px);
-  background: #fefce8;
 }
 
 .level-item.selected {
@@ -631,50 +463,254 @@
 }
 
 .has-children-icon {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   opacity: 0.7;
 }
 
-.no-data-message {
-  text-align: center;
-  padding: 1rem;
-  color: #94a3b8;
-  font-size: 0.8rem;
+/* ========== استایل‌های کامبوی طرف حساب ========== */
+.account-side-wrapper {
+  position: relative;
+  width: 100%;
 }
 
-/* به CreateEditFinancialModal.css اضافه کن */
-.transaction-type-buttons {
+.account-side-wrapper input {
+  width: 100%;
+  padding-left: 36px;
+}
+
+.account-side-loading {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.account-side-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 220px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  z-index: 1002;
+  margin-top: 4px;
+}
+
+.account-side-item {
   display: flex;
-  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid #f1f5f9;
 }
 
-.transaction-btn {
+.account-side-item:hover {
+  background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+}
+
+.account-side-name {
+  font-size: 0.8rem;
+  color: #1e293b;
+  font-weight: 500;
+}
+
+.account-side-code {
+  font-size: 0.65rem;
+  color: #94a3b8;
+  direction: ltr;
+}
+
+.account-side-no-data {
+  padding: 10px;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 0.75rem;
+}
+
+/* ========== استایل‌های دکمه‌های نوع پرداخت ========== */
+.payment-type-buttons {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.payment-type-btn {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 10px 16px;
+  gap: 6px;
+  padding: 8px 12px;
   background: white;
   border: 2px solid #e5e7eb;
-  border-radius: 12px;
-  font-size: 0.9rem;
+  border-radius: 10px;
+  font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
-  font-family: 'Vazirmatn', 'IRANSans', Tahoma, sans-serif;
 }
 
-.transaction-btn:hover {
+.payment-type-btn:hover {
   border-color: #667eea;
   transform: translateY(-1px);
 }
 
-.transaction-btn.active {
+.payment-type-btn.active {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border-color: transparent;
   color: white;
 }
 
+/* ========== استایل‌های بخش چک‌ها ========== */
+.checks-section {
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  background: #f8fafc;
+  border-radius: 10px;
+}
 
+.checks-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
 
+.checks-header label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.85rem;
+}
+
+.add-check-btn, .add-first-check-btn {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.checks-table {
+  overflow-x: auto;
+}
+
+.checks-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.75rem;
+}
+
+.checks-table th,
+.checks-table td {
+  padding: 8px 6px;
+  text-align: center;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.edit-check-btn,
+.delete-check-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 2px 6px;
+  margin: 0 2px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.no-checks-message {
+  text-align: center;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 10px;
+  border: 2px dashed #cbd5e1;
+}
+
+.no-checks-message p {
+  margin-bottom: 0.75rem;
+}
+
+/* ========== مودال چک ========== */
+.check-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+}
+
+.check-modal-container {
+  background: white;
+  border-radius: 20px;
+  width: 500px;
+  max-width: 90%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  direction: rtl;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+}
+
+.check-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.25rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  flex-shrink: 0;
+}
+
+.check-modal-header h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.check-modal-close {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.check-modal-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.25rem;
+}
+
+.check-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding: 0.75rem 1.25rem;
+  border-top: 1px solid #e5e7eb;
+  background: #f9fafb;
+  flex-shrink: 0;
+}
