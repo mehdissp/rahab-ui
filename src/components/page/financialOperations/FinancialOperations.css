@@ -1,4 +1,21 @@
 /* components/FinancialOperations/FinancialOperations/FinancialOperations.css */
+
+/* اضافه کردن استایل سطرهای حذف شده */
+.operation-row.deleted-row {
+  background-color: #fee2e2 !important;
+  opacity: 0.8;
+}
+
+.operation-row.deleted-row:hover {
+  background-color: #fecaca !important;
+}
+
+.operation-row.deleted-row .payment-order-number,
+.operation-row.deleted-row .amount-cell,
+.operation-row.deleted-row td {
+  color: #991b1b;
+}
+
 .financial-operations-page {
   padding: 0;
   width: 100%;
@@ -291,6 +308,16 @@
   color: #6b7280;
 }
 
+.status-cheque {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.status-card {
+  background: #e0e7ff;
+  color: #4338ca;
+}
+
 /* دکمه‌های عملیات */
 .actions-cell {
   width: 100px;
@@ -374,16 +401,4 @@
   .filters-grid {
     grid-template-columns: 1fr;
   }
-}
-
-/* به FinancialOperations.css اضافه کن */
-
-.status-cheque {
-  background: #fef3c7;
-  color: #d97706;
-}
-
-.status-card {
-  background: #e0e7ff;
-  color: #4338ca;
 }

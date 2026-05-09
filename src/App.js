@@ -24,6 +24,7 @@ import RealEstatePageDetail from './components/page/realEstateDetails/RealEstate
 import RealEstateDetailPageItem from './components/page/RealEstateDetailPageItem/RealEstateDetailPageItem'
 import FinancialOperations from './components/page/financialOperations/FinancialOperations'
 import MainLayout from './components/layout/MainLayout';  // <==== ایمپورت MainLayout
+import DocumentsPayable from './components/page/DocumentsPayable/DocumentsPayable'
 import './styles/globals.css';
 import './styles/animations.css';
 import Bank from './components/page/bank/Bank';
@@ -89,6 +90,8 @@ const AuthenticatedApp = () => {
         <Route path="Bank" element={<Bank />} />
         <Route path="FinancialTreeList" element={<FinancialTreeList />} />
      <Route path="FinancialOperations" element={<FinancialOperations />} />
+    <Route path="DocumentsPayable" element={<DocumentsPayable />} />
+     
         
         
         

@@ -53,6 +53,7 @@ import { http } from './api';
 export const financialOperationsService = {
   // دریافت لیست عملیات مالی
   getFinancialOperations: async (pageNumber = 1, pageSize = 10, filters = {}) => {
+    console.log(filters)
     try {
       const response = await http.post('/FinancialOperations/FinancialOperationsDtos', {
         pageSize: pageSize,
@@ -124,7 +125,7 @@ export const financialOperationsService = {
   // حذف عملیات مالی
   deleteFinancialOperation: async (id) => {
     try {
-      const response = await http.delete(`/FinancialOperations/${id}`);
+      const response = await http.post(`/FinancialOperations/DeleteFinancialOperations`,id);
       return response.data;
     } catch (error) {
       console.error('Error in deleteFinancialOperation:', error);
