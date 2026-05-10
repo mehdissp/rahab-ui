@@ -900,7 +900,7 @@ const Sidebar = ({ isOpen, onClose }) => {
           <span className="menu-icon">
             {renderIcon(item.icon)}
           </span>
-          <span className="menu-text">{item.title}</span>
+          <span className="menu-text">{item.label}</span>
           <span className={`expand-icon ${isExpanded ? 'expanded' : ''}`}>
             {isExpanded ? <FaChevronDown /> : <FaChevronRight />}
           </span>

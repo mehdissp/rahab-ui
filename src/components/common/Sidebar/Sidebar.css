@@ -5,7 +5,7 @@
   --primary-dark: #0f172a;
   --accent-color: #3b82f6;
   --accent-hover: #2563eb;
-  --text-primary: #ffffff; /* رنگ سفید برای متن */
+  --text-primary: #ffffff;
   --text-secondary: #e2e8f0;
   --text-muted: #94a3b8;
   --border-color: rgba(255, 255, 255, 0.1);
@@ -21,7 +21,7 @@
   width: var(--sidebar-width);
   height: 100vh;
   background: linear-gradient(180deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-  color: var(--text-primary); /* رنگ متن اصلی سفید */
+  color: var(--text-primary);
   z-index: 1000;
   display: flex;
   flex-direction: column;
@@ -36,8 +36,9 @@
   transform: translateX(0);
 }
 
+/* ========== هدر سایدبار ========== */
 .sidebar-header {
-  padding: 1.25rem 1.5rem; /* کاهش پدینگ */
+  padding: 1.25rem 1.5rem;
   border-bottom: 1px solid var(--border-color);
   display: flex;
   align-items: center;
@@ -66,22 +67,47 @@
 .logo-text {
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--text-primary); /* رنگ سفید */
+  color: var(--text-primary);
 }
 
-/* بخش کاربر کامپکت */
-.user-info-compact {
-  padding: 1rem 1.5rem; /* کاهش قابل توجه پدینگ */
+.sidebar-close {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
-  gap: 0.75rem; /* کاهش فاصله */
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.sidebar-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--text-primary);
+}
+
+/* ========== بخش کاربر ========== */
+.user-info-compact {
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   border-bottom: 1px solid var(--border-color);
   background: rgba(255, 255, 255, 0.03);
-  margin-bottom: 0.5rem; /* فاصله کم با منوها */
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.user-info-compact:hover {
+  background: rgba(59, 130, 246, 0.15);
 }
 
 .user-avatar-compact {
-  width: 40px; /* سایز کوچک‌تر */
+  width: 40px;
   height: 40px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
@@ -89,7 +115,7 @@
   align-items: center;
   justify-content: center;
   font-weight: 600;
-  font-size: 1rem; /* فونت کوچک‌تر */
+  font-size: 1rem;
   color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -100,20 +126,32 @@
 
 .user-name-compact {
   font-weight: 600;
-  margin-bottom: 0.125rem; /* کاهش فاصله */
+  margin-bottom: 0.125rem;
   font-size: 0.95rem;
-color: bisque;
+  color: bisque;
 }
 
 .user-role-compact {
-  font-size: 0.8rem; /* سایز کوچک‌تر */
+  font-size: 0.75rem;
   color: antiquewhite;
   font-weight: 500;
 }
 
+.profile-arrow {
+  color: var(--text-muted);
+  font-size: 1.25rem;
+  transition: var(--transition);
+}
+
+.user-info-compact:hover .profile-arrow {
+  color: var(--accent-color);
+  transform: translateX(-4px);
+}
+
+/* ========== ناوبری اصلی ========== */
 .sidebar-nav {
   flex: 1;
-  padding: 0.5rem 0; /* کاهش پدینگ */
+  padding: 0.5rem 0;
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
@@ -137,28 +175,30 @@ color: bisque;
 }
 
 .nav-section {
-  margin-bottom: 1rem; /* کاهش فاصله */
+  margin-bottom: 1rem;
 }
 
 .section-label {
-  padding: 0 1.5rem 0.5rem; /* کاهش فاصله */
-  font-size: 0.75rem;
+  padding: 0 1.5rem 0.5rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: var(--text-muted);
   font-weight: 600;
 }
 
+/* ========== آیتم‌های منو ========== */
 .menu-item {
   margin-bottom: 0.125rem;
 }
 
+/* استایل پایه برای لینک‌ها و هدرها */
 .menu-link,
 .menu-header {
   display: flex;
   align-items: center;
-  padding: 0.75rem 1.5rem; /* کاهش پدینگ */
-  color: var(--text-primary); /* رنگ سفید برای همه متن‌ها */
+  padding: 0.7rem 1.5rem;
+  color: var(--text-primary);
   text-decoration: none;
   transition: var(--transition);
   position: relative;
@@ -166,7 +206,7 @@ color: bisque;
   border: none;
   background: none;
   width: 100%;
-  font-family: 'Vazirmatn', sans-serif;
+  font-family: inherit;
   border-radius: 0;
 }
 
@@ -174,28 +214,11 @@ color: bisque;
   justify-content: space-between;
 }
 
-.menu-link:hover,
-.menu-header:hover {
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--text-primary);
-  padding-right: 1.625rem;
-}
-
-.menu-link.active {
-  background: rgba(59, 130, 246, 0.15);
-  color: var(--text-primary);
-  border-right: 3px solid var(--accent-color);
-}
-
-.menu-link.active .menu-icon {
-  color: var(--accent-color);
-}
-
+/* آیکون منو */
 .menu-icon {
-  color:whitesmoke !important;
   margin-left: 0.75rem;
   font-size: 1.125rem;
-  width: 20px;
+  width: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -203,47 +226,64 @@ color: bisque;
   color: var(--text-secondary);
 }
 
+/* متن منو */
 .menu-text {
   flex: 1;
   font-weight: 500;
   font-size: 0.9rem;
-  /* color: var(--text-primary);  */
   color: antiquewhite;
+  transition: var(--transition);
 }
 
+/* فلش expand/collapse */
 .expand-icon {
   transition: var(--transition);
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   color: var(--text-muted);
+  margin-right: 0.5rem;
 }
 
 .expand-icon.expanded {
   transform: rotate(180deg);
 }
 
-.submenu {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  background: rgba(0, 0, 0, 0.1);
+/* ========== حالت hover ========== */
+.menu-link:hover,
+.menu-header:hover {
+  background: rgba(59, 130, 246, 0.2);
+  padding-right: 2rem;
 }
 
-.submenu.expanded {
-  max-height: 500px;
+.menu-link:hover .menu-text,
+.menu-header:hover .menu-text {
+  color: #4297e7;
 }
 
-/* سطوح مختلف منو */
-.menu-item.level-1 .menu-link,
-.menu-item.level-1 .menu-header {
-  padding-right: 2.5rem;
-  font-size: 0.875rem;
+.menu-link:hover .menu-icon,
+.menu-header:hover .menu-icon {
+  color: var(--accent-color) !important;
 }
 
-.menu-item.level-2 .menu-link {
-  padding-right: 3.5rem;
-  font-size: 0.85rem;
+.menu-link:hover .expand-icon,
+.menu-header:hover .expand-icon {
+  color: var(--accent-color);
 }
 
+/* ========== حالت active ========== */
+.menu-link.active {
+  background: rgba(59, 130, 246, 0.25);
+  border-right: 3px solid var(--accent-color);
+}
+
+.menu-link.active .menu-text {
+  color: #ffffff;
+}
+
+.menu-link.active .menu-icon {
+  color: var(--accent-color) !important;
+}
+
+/* نشانگر فعال */
 .active-indicator {
   position: absolute;
   left: 1rem;
@@ -260,18 +300,77 @@ color: bisque;
   animation: pulse 2s infinite;
 }
 
+/* ========== زیرمنوها ========== */
+.submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.submenu.expanded {
+  max-height: 600px;
+}
+
+/* سطح اول (زیرمنوهای والد) */
+.menu-item.level-1 .menu-link,
+.menu-item.level-1 .menu-header {
+  padding-right: 2.8rem;
+}
+
+.menu-item.level-1 .menu-icon {
+  margin-left: 0.65rem;
+  width: 20px;
+  font-size: 1rem;
+}
+
+.menu-item.level-1 .menu-text {
+  font-size: 0.85rem;
+}
+
+/* سطح دوم */
+.menu-item.level-2 .menu-link {
+  padding-right: 4rem;
+}
+
+.menu-item.level-2 .menu-icon {
+  margin-left: 0.6rem;
+  width: 18px;
+  font-size: 0.9rem;
+}
+
+.menu-item.level-2 .menu-text {
+  font-size: 0.8rem;
+}
+
+/* سطح سوم */
+.menu-item.level-3 .menu-link {
+  padding-right: 5.2rem;
+}
+
+.menu-item.level-3 .menu-icon {
+  margin-left: 0.55rem;
+  width: 16px;
+  font-size: 0.85rem;
+}
+
+.menu-item.level-3 .menu-text {
+  font-size: 0.75rem;
+}
+
+/* ========== فوتر سایدبار ========== */
 .sidebar-footer {
-  padding: 1rem 1.5rem; /* کاهش پدینگ */
+  padding: 1rem 1.5rem;
   border-top: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
-  gap: 0.75rem; /* کاهش فاصله */
+  gap: 0.75rem;
   background: rgba(255, 255, 255, 0.03);
 }
 
 .current-time {
   text-align: center;
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
   padding: 0.5rem;
   background: rgba(255, 255, 255, 0.05);
@@ -284,13 +383,13 @@ color: bisque;
   justify-content: center;
   gap: 0.75rem;
   width: 100%;
-  padding: 0.75rem 1rem; /* کاهش پدینگ */
+  padding: 0.7rem 1rem;
   background: rgba(239, 68, 68, 0.1);
   color: #fecaca;
   border: 1px solid rgba(239, 68, 68, 0.2);
   border-radius: var(--radius);
-  font-family: 'Vazirmatn', sans-serif;
-  font-size: 0.9rem;
+  font-family: inherit;
+  font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
   transition: var(--transition);
@@ -302,11 +401,16 @@ color: bisque;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.logout-icon {
-  font-size: 1rem;
+.logout-btn:hover .logout-icon {
+  color: #ef4444;
 }
 
-/* Overlay برای موبایل */
+.logout-icon {
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+/* ========== اورلی موبایل ========== */
 .sidebar-overlay {
   position: fixed;
   top: 0;
@@ -318,24 +422,19 @@ color: bisque;
   animation: fadeIn 0.3s ease-out;
 }
 
-/* انیمیشن‌ها */
+/* ========== انیمیشن‌ها ========== */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
-@keyframes slideInRight {
-  from { transform: translateX(100%); }
-  to { transform: translateX(0); }
-}
-
 @keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.2); }
-  100% { transform: scale(1); }
+  0% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.5; }
 }
 
-/* حالت دسکتاپ */
+/* ========== حالت دسکتاپ ========== */
 @media (min-width: 1025px) {
   .sidebar {
     transform: translateX(0);
@@ -352,14 +451,14 @@ color: bisque;
   }
 }
 
-/* حالت تبلت */
+/* ========== حالت تبلت ========== */
 @media (max-width: 1024px) {
   .sidebar {
     width: 300px;
   }
 }
 
-/* حالت موبایل */
+/* ========== حالت موبایل ========== */
 @media (max-width: 480px) {
   .sidebar {
     width: 85%;
@@ -376,7 +475,20 @@ color: bisque;
   
   .menu-link,
   .menu-header {
-    padding: 0.875rem 1.25rem;
+    padding: 0.7rem 1.25rem;
+  }
+  
+  .menu-item.level-0 .menu-icon {
+    width: 22px;
+  }
+  
+  .menu-item.level-1 .menu-link,
+  .menu-item.level-1 .menu-header {
+    padding-right: 2.2rem;
+  }
+  
+  .menu-item.level-2 .menu-link {
+    padding-right: 3rem;
   }
   
   .sidebar-footer {
