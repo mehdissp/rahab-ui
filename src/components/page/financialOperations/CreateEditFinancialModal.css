@@ -714,3 +714,279 @@
   background: #f9fafb;
   flex-shrink: 0;
 }
+
+/* CreateEditFinancialModal.css - نسخه ایزوله */
+
+/* ========== مودال اصلی ========== */
+.financial-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 10px;
+}
+
+.financial-modal-container {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  width: 95vw;
+  max-width: 95vw;
+  height: 95vh;
+  max-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  direction: rtl;
+}
+
+/* ========== مودال چک - کلاس‌های کاملاً ایزوله ========== */
+
+/* لایه پشت مودال چک */
+.check-modal-overlay-custom {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  backdrop-filter: blur(4px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 99999 !important;
+  padding: 20px !important;
+}
+
+/* کانتینر اصلی مودال چک */
+.check-modal-container-custom {
+  background: white !important;
+  border-radius: 24px !important;
+  width: 550px !important;
+  max-width: 90% !important;
+  max-height: 90vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  direction: rtl !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+  animation: modalSlideIn 0.3s ease !important;
+}
+
+/* انیمیشن */
+@keyframes modalSlideIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* هدر مودال چک */
+.check-modal-header-custom {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 1rem 1.5rem !important;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: white !important;
+  flex-shrink: 0 !important;
+}
+
+.check-modal-header-custom h3 {
+  margin: 0 !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  color: white !important;
+}
+
+.check-modal-close-custom {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border: none !important;
+  font-size: 1.5rem !important;
+  cursor: pointer !important;
+  color: white !important;
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s ease !important;
+}
+
+.check-modal-close-custom:hover {
+  background: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* بدنه مودال چک */
+.check-modal-body-custom {
+  flex: 1 !important;
+  overflow-y: auto !important;
+  padding: 1.5rem !important;
+  background: #ffffff !important;
+}
+
+/* گروه فرم در مودال چک */
+.check-modal-body-custom .check-form-group {
+  margin-bottom: 1.25rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.5rem !important;
+}
+
+.check-modal-body-custom .check-form-group label {
+  font-weight: 600 !important;
+  color: #374151 !important;
+  font-size: 0.85rem !important;
+  display: block !important;
+}
+
+.check-modal-body-custom .check-form-group .required {
+  color: #ef4444 !important;
+  margin-right: 2px !important;
+}
+
+.check-modal-body-custom input,
+.check-modal-body-custom select,
+.check-modal-body-custom textarea {
+  width: 100% !important;
+  padding: 0.6rem 0.75rem !important;
+  border: 1px solid #d1d5db !important;
+  border-radius: 10px !important;
+  font-family: inherit !important;
+  font-size: 0.85rem !important;
+  transition: all 0.2s ease !important;
+  background: white !important;
+  box-sizing: border-box !important;
+}
+
+.check-modal-body-custom input:focus,
+.check-modal-body-custom select:focus,
+.check-modal-body-custom textarea:focus {
+  outline: none !important;
+  border-color: #667eea !important;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+}
+
+.check-modal-body-custom textarea {
+  resize: vertical !important;
+  min-height: 80px !important;
+}
+
+/* فوتر مودال چک */
+.check-modal-footer-custom {
+  display: flex !important;
+  justify-content: flex-end !important;
+  gap: 1rem !important;
+  padding: 1rem 1.5rem !important;
+  border-top: 1px solid #e5e7eb !important;
+  background: #f9fafb !important;
+  flex-shrink: 0 !important;
+}
+
+.check-modal-footer-custom .check-btn-cancel {
+  padding: 0.6rem 1.5rem !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 10px !important;
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  background: #f3f4f6 !important;
+  color: #374151 !important;
+}
+
+.check-modal-footer-custom .check-btn-cancel:hover {
+  background: #e5e7eb !important;
+}
+
+.check-modal-footer-custom .check-btn-submit {
+  padding: 0.6rem 1.5rem !important;
+  border: none !important;
+  border-radius: 10px !important;
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: white !important;
+}
+
+.check-modal-footer-custom .check-btn-submit:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4) !important;
+}
+
+/* تاریخ‌ها در مودال چک */
+.check-date-picker-group {
+  position: relative !important;
+}
+
+.check-date-input-wrapper {
+  position: relative !important;
+}
+
+.check-date-input-wrapper input {
+  cursor: pointer !important;
+}
+
+.check-calendar-icon {
+  position: absolute !important;
+  left: 12px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  font-size: 1rem !important;
+  pointer-events: none !important;
+  opacity: 0.6 !important;
+}
+
+.check-calendar-popup {
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+  margin-top: 8px !important;
+  z-index: 100000 !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+/* react-calendar استایل */
+.check-calendar-popup .react-calendar {
+  border: none !important;
+  border-radius: 12px !important;
+  font-family: inherit !important;
+  width: 350px !important;
+  background: white !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* اسکرول بار */
+.check-modal-body-custom::-webkit-scrollbar {
+  width: 6px !important;
+}
+
+.check-modal-body-custom::-webkit-scrollbar-track {
+  background: #e2e8f0 !important;
+  border-radius: 4px !important;
+}
+
+.check-modal-body-custom::-webkit-scrollbar-thumb {
+  background: #94a3b8 !important;
+  border-radius: 4px !important;
+}
+
+.check-modal-body-custom::-webkit-scrollbar-thumb:hover {
+  background: #64748b !important;
+}
